@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script>
+
+
+function Klass(arg, arg1){
+    this.a = arg;
+    this.seta = function(){
+        this.a = arg1;
+    }
+}
+
+Klass.prototype.printer = function(){
+    console.log(this.a)
+}
+
+obj = new Klass("Taras", "ivan")
+
+obj.seta = function(){console.log("here I am!")}
+
+
+// function Klass2(klas){
+//     for (i in klas){
+//         Klass.call(this, i);
+// }
+//     }
+
+
+
+// function Klass2(){
+//     this.name = 'second Class'
+//     }
+//
+// Klass2.prototype = new Klass('igor');
+
+function extend(a, b){
+
+        a.call(this)
+        for (var i in b){
+            this[i] = b[i]}
+
+        // for (var i in a){
+        //     console.log(i);
+        //     // console.log(typeof b[i]);
+        //     // console.log(typeof a.prototype);
+        //
+        //     a.call(this)
+        //     }
+        // return out
+
+}
+
+
+
+klass2 = new extend(Klass, {hello: function(){}, newOption: function(){
+                        console.log("test!")}});
+
+ // console.log(typeof klass2);
+// a = new klass2
+
+
+for (var i in klass2){
+    console.log(i)
+}
+
+klass2.newOption()
+
+
+
+
+</script>
+</body>
+</html>
